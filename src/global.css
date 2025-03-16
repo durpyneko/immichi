@@ -1,0 +1,200 @@
+@font-face {
+  font-family: "Sono";
+  src: url(/fonts/Sono-VariableFont_MONO,wght.ttf) format("truetype");
+  font-style: normal;
+}
+
+:root {
+  --bg: rgb(13, 13, 13);
+  --font-family: "Sono", sans-serif;
+  --color: rgb(200, 200, 200);
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.35);
+  --bg-parent: rgba(18, 18, 18, 1);
+  --bg-child: rgba(30, 30, 30, 0.4);
+  --border: 1px rgb(39, 39, 42) groove;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  background-color: var(--bg);
+  color: var(--color);
+  margin: 0;
+  padding: 0;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+  transition: all 0.3s ease-in-out;
+  height: 100vh;
+  overflow: hidden;
+  user-select: none;
+}
+
+body.bg-on {
+  /* background-image: url(/bg-2.jpg); */
+  background-color: black;
+  backdrop-filter: brightness(0.5);
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+  --bg-parent: rgba(18, 18, 18, 0.4);
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.Box {
+  box-sizing: border-box;
+  background: var(--bg-parent);
+  border-radius: 7px;
+  padding: 15px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: var(--border);
+}
+
+.Box > .Box {
+  border-radius: 6px;
+}
+
+.Icon {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  user-select: none;
+}
+
+.Button {
+  box-sizing: border-box;
+  background: var(--bg-parent);
+  border-radius: 7px;
+  padding: 5px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: var(--border);
+  color: var(--color);
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.Input {
+  box-sizing: border-box;
+  background: var(--bg-parent);
+  border-radius: 7px;
+  padding: 10px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: var(--border);
+  color: var(--color);
+  display: flex;
+  align-items: center;
+  height: 100%;
+  font-family: var(--font-family);
+  font-size: medium;
+  user-select: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+.Center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.VStack {
+  display: flex;
+  flex-direction: column;
+}
+
+.HStack {
+  display: flex;
+  flex-direction: row;
+}
+
+.Gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.Card {
+  display: flex;
+  flex-direction: column;
+  max-width: 150px;
+  max-height: fit-content;
+  height: auto;
+  width: auto;
+  max-width: 100%;
+  position: relative;
+}
+
+.unstyled {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  border: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--bg-child);
+}
+
+button span {
+  padding: 8px;
+}
+
+.material-symbols-rounded {
+  font-size: 24px;
+  height: 100%;
+}
+
+.dot.green {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: green;
+  border-radius: 50%;
+}
+
+.dot.red {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
